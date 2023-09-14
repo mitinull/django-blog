@@ -23,9 +23,15 @@
  
     <!-- Photo grid -->
     <div class="grid">
-      <img src="{% static "blog/images/azadi.jpg" %}" width="600px" height="900px" alt="Azadi Tower" />
-      <img src="{% static "blog/images/bike.jpg" %}" width="600px" height="900px" alt="Bike Wheel" />
-      <img src="{% static "blog/images/milad.jpg" %}" width="600px" height="900px" alt="Milad Tower" />
+      <a href={% url "post-detail-page" "azadi-tower" %}>
+        <img src="{% static "blog/images/azadi.jpg" %}" width="600px" height="900px" alt="Azadi Tower" />
+      </a>
+      <a href={% url "post-detail-page" "bike" %}>
+        <img src="{% static "blog/images/bike.jpg" %}" width="600px" height="900px" alt="Bike Wheel" />
+      </a>
+      <a href={% url "post-detail-page" "milad-tower" %}>
+        <img src="{% static "blog/images/milad.jpg" %}" width="600px" height="900px" alt="Milad Tower" />
+      </a>
     </div>
   </main>
 
