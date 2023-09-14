@@ -1,7 +1,33 @@
 {% extends "base.html" %}
+
+{% load static %}
+
 {% block page_title %}
   Django Blog
 {% endblock page_title %}
+
+{% block page_head %}
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Raleway" />
+  <link rel="stylesheet" href={% static "blog/blog.css" %}>
+  <link rel="stylesheet" href={% static "blog/header.css" %}>
+{% endblock page_head %}
+
 {% block page_body %}
-  <h1>Welcome to Django Blog</h1>
+  {% include "blog/header.html" %}
+
+  <main class="w3-main">
+    <!-- Push down content on small screens -->
+    <div class="w3-hide-large nav-space"></div>
+ 
+    <!-- Photo grid -->
+    <div class="grid">
+      <img src="{% static "blog/images/azadi.jpg" %}" width="600px" height="900px" alt="Azadi Tower" />
+      <img src="{% static "blog/images/bike.jpg" %}" width="600px" height="900px" alt="Bike Wheel" />
+      <img src="{% static "blog/images/milad.jpg" %}" width="600px" height="900px" alt="Milad Tower" />
+    </div>
+  </main>
+
+  <script src={% static "blog/blog.js" %}></script>
 {% endblock page_body %}
