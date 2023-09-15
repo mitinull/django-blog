@@ -28,8 +28,18 @@
   }
 }
 
-@media screen  and (min-width: 1150px) {
+@media screen and (min-width: 1150px) {
   .post-detail .text {
     padding: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 992px) and (min-width: 801px)  {
+  .post-detail img {
+    height: calc(100vh - 83px);
+  }
+
+  main {
+    min-height: calc(100vh - 83px);
   }
 }
