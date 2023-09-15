@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block page_title %}
-  Post Title
+  {{ post.title }}
 {% endblock page_title %}
 
 {% block page_head %}
@@ -22,18 +22,11 @@
     <div class="w3-hide-large nav-space"></div>
  
     <div class="post-detail">
-      <img src="{% static "blog/images/azadi.jpg" %}" width="1000px" height="1500px" alt="Azadi Tower" />
+      <img src="{% static "blog/images/"|add:post.image %}" width="1000px" height="1500px" alt="Azadi Tower" />
       <div class="text">
-        <h1>Azadi Tower</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat magni consequatur praesentium, temporibus fugiat amet repellendus velit? Suscipit, accusamus odio.
-        </p>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat magni consequatur praesentium, temporibus fugiat amet repellendus velit? Suscipit, accusamus odio. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore a sed vel, id ipsa consequatur?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At, id deleniti aperiam repudiandae dignissimos et reprehenderit ipsum, natus commodi nisi doloremque odio iste expedita quis suscipit est libero quisquam corporis!
-        </p>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content|linebreaks }}</p>
+ 
       </div>
     </div>
   </main>
