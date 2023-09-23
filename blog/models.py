@@ -24,8 +24,8 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(
-        unique=True, db_index=True
-    )  # Actually there is no need to set db_index to True!
+        unique=True, primary_key=True
+    )
     date = models.DateField(auto_now=True)
     image = models.CharField(max_length=500)
     content = models.TextField(validators=[MinLengthValidator(10)])

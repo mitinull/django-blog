@@ -18,6 +18,7 @@ def home(request):
 def post_detail(request, slug):
     # TODO: Add get_object_or_404 ?
     # TODO: Add mail to author email?
+    # TODO: Add date
     post = posts.get(slug=slug)
     if post == None:
         raise Http404
