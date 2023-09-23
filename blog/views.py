@@ -13,8 +13,8 @@ def home(request):
 
 
 def post_detail(request, slug):
-    # TODO: Add mail to author email?
+    # TODO: Add a author page and a mail to author button (add mail to author)
     # TODO: Add date
     post = get_object_or_404(Post, slug=slug)
-    
+
     return render(request, "blog/post-detail.html", {"post": post})
