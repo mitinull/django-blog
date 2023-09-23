@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.core.validators import MinLengthValidator
+
 
 # Create your models here.
 
@@ -20,17 +22,16 @@ class Tag(models.Model):
 
 
 class Post(models.Model):
-    # TODO: Add date field
     title = models.CharField(max_length=100)
-    # TODO: Make it index instead of pk? when unique it's indexed also when it's slug
-    slug = models.SlugField(primary_key=True, unique=True)
+    slug = models.SlugField(
+        unique=True, db_index=True
+    )  # Actually there is no need to set db_index to True!
+    date = models.DateField(auto_now=True)
     image = models.CharField(max_length=500)
-    # TODO: Change content to text field.
-    # TODO: Add MinLengthValidator to content
-    content = models.CharField(max_length=2000)
-    # TODO: Change on delete to null
-    # TODO: Add related name
-    photographer = models.ForeignKey(Photographer, on_delete=models.CASCADE)
+    content = models.TextField(validators=[MinLengthValidator(10)])
+    photographer = models.ForeignKey(
+        Photographer, on_delete=models.SET_NULL, null=True, related_name="posts"
+    )
     tags = models.ManyToManyField(Tag)
 
     def __str__(self):
