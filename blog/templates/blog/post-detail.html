@@ -22,7 +22,10 @@
     <div class="w3-hide-large nav-space"></div>
  
     <div class="post-detail">
-      <img src="{% static "blog/images/"|add:post.image %}" width="1000px" height="1500px" alt="Azadi Tower" />
+      <img src="{{ post.image.url }}"
+           width="1000px"
+           height="1500px"
+           alt="Azadi Tower" />
       <div class="text">
         <h1>{{ post.title }}</h1>
         <div>
@@ -30,6 +33,17 @@
           <span>{{ post.photographer }}</span>
         </div>
         <p>{{ post.content|linebreaks }}</p>
+
+        <form action="{{ post.slug }}/like" method="post">
+          {% csrf_token %}
+          {% if liked %}
+            <input type="hidden" name="liked" value="false">
+            <button>Liked</button>
+          {% else %}
+            <input type="hidden" name="liked" value="true">
+            <button>Like</button>
+          {% endif %}
+        </form>
 
         <div>
           <h3>tags:</h3>
