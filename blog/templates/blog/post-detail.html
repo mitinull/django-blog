@@ -35,6 +35,11 @@
           <h3>tags:</h3>
           {% for tag in post.tags.all %}<span>{{ tag }}</span>{% endfor %}
         </div>
+
+        <div>
+          {% include "blog/comment-form.html" %}
+          {% include "blog/comments.html" %}
+        </div>
       </div>
 
     </div>

@@ -23,9 +23,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField(
-        unique=True, primary_key=True
-    )
+    slug = models.SlugField(unique=True, primary_key=True)
     date = models.DateField(auto_now=True)
     image = models.CharField(max_length=500)
     content = models.TextField(validators=[MinLengthValidator(10)])
@@ -36,3 +34,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=100)
+    message = models.TextField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    date = models.DateTimeField(auto_now=True)

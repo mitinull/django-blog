@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 
-from django.http import Http404
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 
-from .models import Post
+from django.views import View
+
+from .models import Post, Comment
 
 # Create your views here.
 
@@ -12,9 +14,17 @@ def home(request):
     return render(request, "blog/index.html", {"posts": posts})
 
 
-def post_detail(request, slug):
-    # TODO: Add a author page and a mail to author button (add mail to author)
-    # TODO: Add date
-    post = get_object_or_404(Post, slug=slug)
+class post_detail(View):
+    def get(self, request, **kwargs):
+        post = get_object_or_404(Post, slug=kwargs["slug"])
+        return render(request, "blog/post-detail.html", {"post": post})
 
-    return render(request, "blog/post-detail.html", {"post": post})
+    def post(self, request, **kwargs):
+        post = get_object_or_404(Post, slug=kwargs["slug"])
+        data = request.POST
+        print(data)
+        new_comment = Comment(
+            name=data.get("name"), message=data.get("comment"), post=post
+        )
+        new_comment.save()
+        return HttpResponseRedirect(f'/{kwargs["slug"]}')

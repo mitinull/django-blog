@@ -1,0 +1,11 @@
+<h3>comments</h3>
+<ul>
+  {% for comment in post.comments.all|dictsortreversed:"date" %}
+    <li>
+      <div>
+        <h4>{{ comment.name }}</h4>
+        <p>{{ comment.message }}</p>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
