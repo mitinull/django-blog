@@ -25,7 +25,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, primary_key=True)
     date = models.DateField(auto_now=True)
-    image = models.FileField(upload_to="post-image-uploads")
+    image = models.ImageField(upload_to="post-image-uploads")
     content = models.TextField(validators=[MinLengthValidator(10)])
     photographer = models.ForeignKey(
         Photographer, on_delete=models.SET_NULL, null=True, related_name="posts"
