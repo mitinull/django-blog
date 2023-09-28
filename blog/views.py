@@ -4,14 +4,22 @@ from django.http import Http404, HttpResponse, HttpResponseRedirect
 
 from django.views import View
 
+from django.views.generic import ListView
+
 from .models import Post, Comment
 
 # Create your views here.
 
 
-def home(request):
-    posts = Post.objects.all().order_by("date")
-    return render(request, "blog/index.html", {"posts": posts})
+# def home(request):
+#     posts = Post.objects.all().order_by("date")
+#     return render(request, "blog/index.html", {"posts": posts})
+
+
+class Home(ListView):
+    model = Post
+    template_name = "blog/index.html"
+    context_object_name = "posts"
 
 
 class post_detail(View):
