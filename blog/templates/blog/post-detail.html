@@ -34,7 +34,7 @@
         </div>
         <p>{{ post.content|linebreaks }}</p>
 
-        <form action="{{ post.slug }}/like" method="post">
+        <form action="{% url "post-like" slug=post.slug %}" method="post">
           {% csrf_token %}
           {% if liked %}
             <input type="hidden" name="liked" value="false">

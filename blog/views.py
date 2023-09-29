@@ -1,13 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-
-from django.http import Http404, HttpResponse, HttpResponseRedirect
-
+from django.http import HttpResponseRedirect
 from django.views import View
-
 from django.views.generic import ListView
+from django.urls import reverse
 
-from .models import Post, Comment
-
+from .models import Post
 from .forms import CommentForm
 
 # Create your views here.
@@ -25,7 +22,6 @@ class Home(ListView):
 
 
 class post_detail(View):
-    # TODO: Check form validation
     def get(self, request, **kwargs):
         post = get_object_or_404(Post, slug=kwargs["slug"])
         liked_posts = request.session.get("liked_posts") or []
@@ -52,8 +48,7 @@ class post_detail(View):
                 "blog/post-detail.html",
                 {"post": post, "liked": is_liked, "form": form},
             )
-        # TODO: User reverse()
-        return HttpResponseRedirect(f'/{kwargs["slug"]}')
+        return HttpResponseRedirect(reverse("post-detail-page", args=[kwargs["slug"]]))
 
 
 class post_like(View):
@@ -71,4 +66,4 @@ class post_like(View):
         else:
             if body["liked"]:
                 request.session["liked_posts"] = [kwargs["slug"]]
-        return HttpResponseRedirect(f'/{kwargs["slug"]}')
+        return HttpResponseRedirect(reverse("post-detail-page", args=[kwargs["slug"]]))
