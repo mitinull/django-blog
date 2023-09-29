@@ -8,6 +8,8 @@ from django.views.generic import ListView
 
 from .models import Post, Comment
 
+from .forms import CommentForm
+
 # Create your views here.
 
 
@@ -23,22 +25,34 @@ class Home(ListView):
 
 
 class post_detail(View):
+    # TODO: Check form validation
     def get(self, request, **kwargs):
         post = get_object_or_404(Post, slug=kwargs["slug"])
         liked_posts = request.session.get("liked_posts") or []
         is_liked = kwargs["slug"] in liked_posts
         return render(
-            request, "blog/post-detail.html", {"post": post, "liked": is_liked}
+            request,
+            "blog/post-detail.html",
+            {"post": post, "liked": is_liked, "form": CommentForm()},
         )
 
     def post(self, request, **kwargs):
         post = get_object_or_404(Post, slug=kwargs["slug"])
+        liked_posts = request.session.get("liked_posts") or []
+        is_liked = kwargs["slug"] in liked_posts
         data = request.POST
-        print(data)
-        new_comment = Comment(
-            name=data.get("name"), message=data.get("comment"), post=post
-        )
-        new_comment.save()
+        form = CommentForm(data)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+        else:
+            return render(
+                request,
+                "blog/post-detail.html",
+                {"post": post, "liked": is_liked, "form": form},
+            )
+        # TODO: User reverse()
         return HttpResponseRedirect(f'/{kwargs["slug"]}')
 
 

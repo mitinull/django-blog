@@ -51,7 +51,11 @@
         </div>
 
         <div>
-          {% include "blog/comment-form.html" %}
+          <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button>send</button>
+          </form>
           {% include "blog/comments.html" %}
         </div>
       </div>
