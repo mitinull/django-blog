@@ -31,12 +31,19 @@
 @media screen and (min-width: 1150px) {
   .post-detail .text {
     padding: 3.5rem;
+    height: 100vh;
+    overflow-y: scroll;
   }
 }
 
-@media screen and (max-width: 992px) and (min-width: 801px)  {
+@media screen and (max-width: 992px) and (min-width: 801px) {
   .post-detail img {
     height: calc(100vh - 83px);
+  }
+
+  .post-detail .text {
+    height: calc(100vh - 83px);
+    overflow-y: scroll;
   }
 
   main {
