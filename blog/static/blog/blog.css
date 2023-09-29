@@ -1,6 +1,8 @@
-/* TODO: Dark scrollbar */
-/* TODO: Make it darker */
 /* TODO: Fix post details styles */
+
+:root {
+  color-scheme: dark;
+}
 
 body,
 h1,
@@ -59,7 +61,7 @@ h5 {
 
 main {
   margin-left: 300px;
-  background-color: #4f5559;
+  background-color: #3f4547;
   min-height: 100vh;
 }
 
