@@ -1,7 +1,4 @@
 <h3>comments</h3>
-{% comment %} 
-  TODO: Fix comments scroll
-{% endcomment %}
 <ul>
   {% for comment in post.comments.all|dictsortreversed:"date" %}
     <li>

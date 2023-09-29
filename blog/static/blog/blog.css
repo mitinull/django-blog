@@ -16,7 +16,7 @@ h5 {
   opacity: 0.8;
   cursor: pointer;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   transition: opacity 100ms;
   /* height: 10px; */
