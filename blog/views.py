@@ -53,17 +53,24 @@ class post_detail(View):
 
 class post_like(View):
     def post(self, request, **kwargs):
+        slug = kwargs["slug"]
         print("POST/like")
         body = request.POST
-        liked_posts: list = request.session.get("liked_posts")
-        if liked_posts:
-            if body["liked"] and kwargs["slug"] not in request.session["liked_posts"]:
-                liked_posts.append(kwargs["slug"])
-                request.session["liked_posts"] = liked_posts
-            else:
-                liked_posts.remove(kwargs["slug"])
-                request.session["liked_posts"] = liked_posts
+        liked_posts: list = request.session.get("liked_posts") or []
+
+        if body["liked"] and kwargs["slug"] not in liked_posts:
+            liked_posts.append(kwargs["slug"])
+            request.session["liked_posts"] = liked_posts
+
+            post = Post.objects.get(slug=slug)
+            post.num_likes += 1
+            post.save()
         else:
-            if body["liked"]:
-                request.session["liked_posts"] = [kwargs["slug"]]
-        return HttpResponseRedirect(reverse("post-detail-page", args=[kwargs["slug"]]))
+            liked_posts.remove(kwargs["slug"])
+            request.session["liked_posts"] = liked_posts
+
+            post = Post.objects.get(slug=slug)
+            post.num_likes -= 1
+            post.save()
+
+        return HttpResponseRedirect(reverse("post-detail-page", args=[slug]))

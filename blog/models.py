@@ -31,6 +31,7 @@ class Post(models.Model):
         Photographer, on_delete=models.SET_NULL, null=True, related_name="posts"
     )
     tags = models.ManyToManyField(Tag)
+    num_likes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

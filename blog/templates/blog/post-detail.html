@@ -2,6 +2,7 @@
 
 {% comment %} 
   TODO: Adding number of likes
+  TODO: Adding back button
 {% endcomment %}
 
 {% load static %}
@@ -48,6 +49,7 @@
             <button>Like</button>
           {% endif %}
         </form>
+        <div>({{ post.num_likes }})</div>
 
         <div>
           <h3>tags:</h3>
