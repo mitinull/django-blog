@@ -10,10 +10,70 @@
 .post-detail .text {
   padding: 2.5rem;
   color: #eee;
+  flex: 1;
 }
 
 .post-detail .text p {
   line-height: 2rem;
+}
+
+.tags {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: #6b6b6b;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+
+.comment {
+  width: auto;
+  margin-left: auto;
+  flex: 1;
+}
+
+.comment form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment input,
+.comment textarea {
+  background: transparent;
+  resize: none;
+  border: 1px solid #6b6b6b;
+  border-radius: 3px;
+  padding: 4px 0.5rem;
+  outline: none;
+  font-family: inherit;
+  margin-bottom: .5rem;
+}
+
+.comment textarea {
+  height: 6rem;
+}
+
+.comment input:focus,
+.comment textarea:focus {
+  border: 1px solid #999;
+}
+
+.comment button {
+  padding: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 3px;
+
+}
+
+.comment button:hover {
+  background: #777;
 }
 
 @media screen and (max-width: 800px),
@@ -32,7 +92,7 @@
   .post-detail .text {
     padding: 3.5rem;
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
 
@@ -43,7 +103,7 @@
 
   .post-detail .text {
     height: calc(100vh - 83px);
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   main {

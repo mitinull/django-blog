@@ -1,11 +1,18 @@
-<h3>comments</h3>
-<ul>
-  {% for comment in post.comments.all|dictsortreversed:"date" %}
-    <li>
-      <div>
-        <h4>{{ comment.name }}</h4>
-        <p>{{ comment.message|linebreaks }}</p>
-      </div>
-    </li>
-  {% endfor %}
-</ul>
+<section class="comment">
+  <h3>comments</h3>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button>POST COMMENT</button>
+  </form>
+  <ul>
+    {% for comment in post.comments.all|dictsortreversed:"date" %}
+      <li>
+        <div>
+          <h4>{{ comment.name }}</h4>
+          <p>{{ comment.message|linebreaks }}</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
