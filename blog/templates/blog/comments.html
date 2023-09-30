@@ -1,4 +1,4 @@
-<section class="comment">
+<section class="comment-section">
   <h3>comments</h3>
   <form action="" method="post">
     {% csrf_token %}
@@ -8,10 +8,8 @@
   <ul>
     {% for comment in post.comments.all|dictsortreversed:"date" %}
       <li>
-        <div>
-          <h4>{{ comment.name }}</h4>
-          <p>{{ comment.message|linebreaks }}</p>
-        </div>
+        <h4>{{ comment.name }}</h4>
+        <p>{{ comment.message|linebreaksbr }}</p>
       </li>
     {% endfor %}
   </ul>

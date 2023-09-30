@@ -30,19 +30,25 @@
   border-radius: 3px;
 }
 
-.comment {
+.comment-section {
   width: auto;
   margin-left: auto;
   flex: 1;
 }
 
-.comment form {
+.comment-section form {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  background: #7771;
+  border-bottom: 2px solid #7777;
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+  border-radius: 1rem;
 }
 
-.comment input,
-.comment textarea {
+.comment-section input,
+.comment-section textarea {
   background: transparent;
   resize: none;
   border: 1px solid #6b6b6b;
@@ -53,16 +59,16 @@
   margin-bottom: .5rem;
 }
 
-.comment textarea {
+.comment-section textarea {
   height: 6rem;
 }
 
-.comment input:focus,
-.comment textarea:focus {
+.comment-section input:focus,
+.comment-section textarea:focus {
   border: 1px solid #999;
 }
 
-.comment button {
+.comment-section button {
   padding: 6px;
   cursor: pointer;
   font-family: inherit;
@@ -72,8 +78,31 @@
 
 }
 
-.comment button:hover {
+.comment-section button:hover {
   background: #777;
+}
+
+.comment-section ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-top: 1rem;
+}
+
+.comment-section li {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: #7771;
+  border-bottom: 2px solid #7777;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.comment-section h4 {
+  margin: 0;
 }
 
 @media screen and (max-width: 800px),
