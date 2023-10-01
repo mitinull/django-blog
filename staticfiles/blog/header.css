@@ -1,0 +1,20 @@
+#mySidebar {
+  z-index: 3;
+  width: 300px;
+  font-weight: bold;
+  background: #0f1111;
+  color: #9e9689;
+}
+
+#close {
+  margin-top: 5rem;
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 16px;
+  border: solid 1px #9e9689;
+}
+
+#header {
+  background: #0f1111;
+  color: #9e9689;
+}
