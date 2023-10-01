@@ -4,4 +4,6 @@
 *.pyc
 __pycache__
 
+django_website_venv
+
 template-html-files
