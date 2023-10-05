@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% comment %} 
-  TODO: Adding back button
-  TODO: Adding no comments yet
+  TODO: Fix broweser back button after post (comment and like)
   TODO: Change title
 {% endcomment %}
 
@@ -33,7 +32,9 @@
            height="1500px"
            alt="{{ post.title }}" />
       <div class="text">
-        <a href="{% url "home-page" %}"><button class="back-button">Back to Home</button></a>
+        <a href="{% url "home-page" %}">
+          <button class="back-button">Back to Home</button>
+        </a>
 
         <div>
  

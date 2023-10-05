@@ -9,7 +9,7 @@
 
 .post-detail .text {
   padding: 0;
-  color: #ccc;
+  color: #bbb;
   flex: 1;
 }
 
@@ -24,7 +24,7 @@
 .post-detail .text h1 {
   margin-bottom: 4px;
   font-size: 1.9rem;
-  color: #eee;
+  color: #ccc;
 }
 
 .post-detail .text .like-photographer {
@@ -80,7 +80,7 @@
 }
 
 .tag {
-  background: #6b6b6b;
+  background: #444;
   padding: 2px 13px;
   border-radius: 300px;
   /* color: #eee; */
@@ -132,11 +132,12 @@
   border: none;
   border-radius: 3px;
   margin-top: 5px;
-  background: #666;
+  background: #555;
+  color: inherit;
 }
 
 .comment-section button:hover {
-  background: #777;
+  background: #666;
 }
 
 .comment-section ul {
@@ -146,6 +147,12 @@
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 1rem;
+}
+
+.comment-section .no-comment {
+  color: #aaa;
+  margin-top: 1rem;
+  font-size: 1rem !important;
 }
 
 .comment-section li {
@@ -160,7 +167,7 @@
 
 .comment-section h3 {
   font-size: 1.4rem;
-  color: #ccc;
+  color: #bbb;
 }
 
 .comment-section h4 {

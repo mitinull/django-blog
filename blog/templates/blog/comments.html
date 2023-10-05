@@ -6,11 +6,15 @@
     <button>POST COMMENT</button>
   </form>
   <ul>
-    {% for comment in post.comments.all|dictsortreversed:"date" %}
-      <li>
-        <h4>{{ comment.name }}</h4>
-        <p>{{ comment.message|linebreaksbr }}</p>
-      </li>
-    {% endfor %}
+    {% if post.comments.all %}
+      {% for comment in post.comments.all|dictsortreversed:"date" %}
+        <li>
+          <h4>{{ comment.name }}</h4>
+          <p>{{ comment.message|linebreaksbr }}</p>
+        </li>
+      {% endfor %}
+    {% else %}
+      <p class="no-comment">No comments yet!</p>
+    {% endif %}
   </ul>
 </section>
