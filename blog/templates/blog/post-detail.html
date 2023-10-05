@@ -33,9 +33,9 @@
            height="1500px"
            alt="{{ post.title }}" />
       <div class="text">
-        <a href={% url "home-page" %}>
+        {% comment %} <a href={% url "home-page" %}>
           <button>Back</button>
-        </a>
+        </a> {% endcomment %}
 
         <h1>{{ post.title }}</h1>
 
