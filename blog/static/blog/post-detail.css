@@ -8,9 +8,13 @@
 }
 
 .post-detail .text {
-  padding: 2.5rem;
+  padding: 0;
   color: #ccc;
   flex: 1;
+}
+
+.post-detail .text > div {
+  padding: 1.5rem 2.5rem;
 }
 
 .post-detail .text p {
@@ -21,7 +25,6 @@
   margin-bottom: 4px;
   font-size: 1.9rem;
   color: #eee;
-
 }
 
 .post-detail .text .like-photographer {
@@ -33,6 +36,9 @@
 
 .post-detail .text .photographer {
   text-align: right;
+}
+
+.post-detail .text .photographer :last-child {
   font-size: 1.1rem;
 }
 
@@ -55,12 +61,21 @@
   height: 25px;
 }
 
+.text .back-button {
+  width: 100%;
+  background: #0f1111;
+  color: #9e9689;
+  border: none;
+  padding: 10px;
+  margin-top: 2px;
+}
+
 .tags {
   display: flex;
   list-style: none;
   padding: 0;
   gap: 0.5rem;
-  font-size: .9rem;
+  font-size: 0.9rem;
   margin-top: 1.1rem;
 }
 
@@ -72,7 +87,7 @@
 }
 
 .comment-section {
-  margin-top: 2rem;
+  margin-top: 1rem;
   flex: 1;
 }
 
@@ -111,7 +126,7 @@
 .comment-section button {
   padding: 7px;
   cursor: pointer;
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-family: inherit;
   letter-spacing: 2px;
   border: none;
@@ -166,9 +181,16 @@
 
 @media screen and (min-width: 1150px) {
   .post-detail .text {
-    padding: 3.5rem;
     height: 100vh;
     overflow-y: auto;
+  }
+
+  .post-detail .text > div {
+    padding: 2rem 3.5rem;
+  }
+
+  .text .back-button {
+    margin-top: 0;
   }
 }
 

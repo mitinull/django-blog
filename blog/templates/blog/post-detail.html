@@ -2,8 +2,8 @@
 
 {% comment %} 
   TODO: Adding back button
-  TODO: make photographer: smaller
-  TODO: reduce gap in mobile view ( gap: 1px or remove gap )
+  TODO: Adding no comments yet
+  TODO: Change title
 {% endcomment %}
 
 {% load static %}
@@ -33,44 +33,45 @@
            height="1500px"
            alt="{{ post.title }}" />
       <div class="text">
-        {% comment %} <a href={% url "home-page" %}>
-          <button>Back</button>
-        </a> {% endcomment %}
+        <a href="{% url "home-page" %}"><button class="back-button">Back to Home</button></a>
 
-        <h1>{{ post.title }}</h1>
-
-        <p>{{ post.content|linebreaks }}</p>
-
-        <div class="like-photographer">
-          <form action="{% url "post-like" slug=post.slug %}"
-                method="post"
-                class="like-form">
-            {% csrf_token %}
-            {% if liked %}
-              <input type="hidden" name="liked" value="false">
-              <button class="like-button">
-                <img src="{% static "blog/favorite-fill.svg" %}" alt="like" width="25px" height="25px">
-              </button>
-            {% else %}
-              <input type="hidden" name="liked" value="true">
-              <button class="like-button">
-                <img src="{% static "blog/favorite-line.svg" %}" alt="like" width="25px" height="25px">
-              </button>
+        <div>
  
-            {% endif %}
-            <div>likes: {{ post.num_likes }}</div>
-          </form>
-          <div class="photographer">
-            <span>Photographer:</span>
-            <span>{{ post.photographer }}</span>
+          <h1>{{ post.title }}</h1>
+ 
+          <p>{{ post.content|linebreaks }}</p>
+ 
+          <div class="like-photographer">
+            <form action="{% url "post-like" slug=post.slug %}"
+                  method="post"
+                  class="like-form">
+              {% csrf_token %}
+              {% if liked %}
+                <input type="hidden" name="liked" value="false">
+                <button class="like-button">
+                  <img src="{% static "blog/favorite-fill.svg" %}" alt="like" width="25px" height="25px">
+                </button>
+              {% else %}
+                <input type="hidden" name="liked" value="true">
+                <button class="like-button">
+                  <img src="{% static "blog/favorite-line.svg" %}" alt="like" width="25px" height="25px">
+                </button>
+ 
+              {% endif %}
+              <div>likes: {{ post.num_likes }}</div>
+            </form>
+            <div class="photographer">
+              <span>Photographer:</span>
+              <span>{{ post.photographer }}</span>
+            </div>
           </div>
+ 
+          <ul class="tags">
+            {% for tag in post.tags.all %}<li class="tag">{{ tag }}</li>{% endfor %}
+          </ul>
+ 
+          {% include "blog/comments.html" %}
         </div>
- 
-        <ul class="tags">
-          {% for tag in post.tags.all %}<li class="tag">{{ tag }}</li>{% endfor %}
-        </ul>
- 
-        {% include "blog/comments.html" %}
 
       </div>
 
