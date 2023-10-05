@@ -1,6 +1,3 @@
-/* TODO: Fixing like button styles */
-/* TODO: Improving tags styles */
-
 .post-detail {
   display: flex;
 }
@@ -36,7 +33,7 @@
 
 .post-detail .text .photographer {
   text-align: right;
-  font-size: 1.1rem;=
+  font-size: 1.1rem;
 }
 
 .text .like-form {

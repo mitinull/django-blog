@@ -9,9 +9,6 @@
     {% for comment in post.comments.all|dictsortreversed:"date" %}
       <li>
         <h4>{{ comment.name }}</h4>
-        {% comment %}
-          TODO: Fixing long line comment. (4-5 line limit)
-        {% endcomment %}
         <p>{{ comment.message|linebreaksbr }}</p>
       </li>
     {% endfor %}
