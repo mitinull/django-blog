@@ -12,12 +12,50 @@
 
 .post-detail .text {
   padding: 2.5rem;
-  color: #eee;
+  color: #ccc;
   flex: 1;
 }
 
 .post-detail .text p {
-  line-height: 2rem;
+  font-size: 1.1rem;
+}
+
+.post-detail .text h1 {
+  margin-bottom: 4px;
+  font-size: 1.9rem;
+  color: #eee;
+
+}
+
+.post-detail .text .like-photographer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 1.2rem;
+}
+
+.post-detail .text .photographer {
+  text-align: right;
+  font-size: 1.1rem;=
+}
+
+.text .like-form {
+  display: flex;
+  align-items: end;
+}
+
+.text button {
+  cursor: pointer;
+}
+
+.text .like-button {
+  background: transparent;
+  border: none;
+}
+
+.text .like-button img {
+  width: 25px;
+  height: 25px;
 }
 
 .tags {
@@ -25,27 +63,28 @@
   list-style: none;
   padding: 0;
   gap: 0.5rem;
+  font-size: .9rem;
+  margin-top: 1.1rem;
 }
 
 .tag {
   background: #6b6b6b;
-  padding: 3px 10px;
-  border-radius: 3px;
+  padding: 2px 13px;
+  border-radius: 300px;
+  /* color: #eee; */
 }
 
 .comment-section {
-  width: auto;
-  margin-left: auto;
+  margin-top: 2rem;
   flex: 1;
 }
 
 .comment-section form {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  background: #7771;
-  border-bottom: 2px solid #7777;
-  padding: 1rem;
+  background: #7772;
+  /* border-bottom: 2px solid #7777; */
+  padding: 1.5rem;
   padding-bottom: 1.5rem;
   border-radius: 1rem;
 }
@@ -56,14 +95,15 @@
   resize: none;
   border: 1px solid #6b6b6b;
   border-radius: 3px;
-  padding: 4px 0.5rem;
+  padding: 3px 0.5rem;
   outline: none;
   font-family: inherit;
   margin-bottom: 0.5rem;
+  margin-top: 2px;
 }
 
 .comment-section textarea {
-  height: 6rem;
+  height: 5rem;
 }
 
 .comment-section input:focus,
@@ -72,12 +112,15 @@
 }
 
 .comment-section button {
-  padding: 6px;
+  padding: 7px;
   cursor: pointer;
+  font-size: .9rem;
   font-family: inherit;
   letter-spacing: 2px;
   border: none;
   border-radius: 3px;
+  margin-top: 5px;
+  background: #666;
 }
 
 .comment-section button:hover {
@@ -101,6 +144,11 @@
   border-bottom: 2px solid #7777;
   padding: 1rem;
   border-radius: 1rem;
+}
+
+.comment-section h3 {
+  font-size: 1.4rem;
+  color: #ccc;
 }
 
 .comment-section h4 {
