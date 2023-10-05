@@ -133,7 +133,7 @@
   border-radius: 3px;
   margin-top: 5px;
   background: #555;
-  color: inherit;
+  color: #ccc;
 }
 
 .comment-section button:hover {
